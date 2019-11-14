@@ -11,6 +11,12 @@ const { db } = require('./models/index'); //aquiring our database
 //main.fun
 */
 
+// const userRouter = require("./routes/user.js");
+const wikiRouter = require("./routes/wiki.js");
+
+app.use("/wiki", wikiRouter);
+// app.use("/user", userRouter);
+
 db.authenticate().then(() => {
   console.log('connected to the database');
 });
