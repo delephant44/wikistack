@@ -3,6 +3,19 @@ const morgan = require('morgan')
 const routes = require('./routes/index')
 
 const app = express()
+
+const { db, fun } = require('./models/index');//aquiring our database
+/* the above can be done like this:
+//const main = require('./models/index')
+//main.db
+//main.fun
+*/
+
+db.authenticate().
+then(() => {
+  console.log('connected to the database');
+})
+
 app.use(morgan('dev'))
 
 const PORT = 3000
